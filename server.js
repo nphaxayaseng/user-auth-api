@@ -1,7 +1,9 @@
 const express = require('express');
 const usersRouter = require('./routes/users');
+const taskRouter = require('./routes/tasks');
 const loginRouter = require('./routes/login');
-const registerRouter = require('./routes/register')
+const registerRouter = require('./routes/register');
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -13,6 +15,7 @@ require('./config/db');
 // --- MIDDLE WARE ---
 app.use(express.json ());
 app.use('/users', usersRouter);
+app.use('/tasks', taskRouter);
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 
