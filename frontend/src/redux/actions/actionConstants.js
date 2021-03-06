@@ -1,0 +1,13 @@
+// task
+
+export const TASK_CREATE = 'TASK_CREATE';
+export const TASK_UPDATE = 'TASK_UPDATE';
+export const TASK_DELETE = 'TASK_DELETE';
+export const TASK_GET = 'TASK_GET';
+
+
+// USERS
+export const USERS_LOGGED_IN = 'USERS_LOGGED_IN'
+export const USERS_LOGGING_IN = 'USERS_LOGGING_IN'
+export const USERS_REGISTERED = 'USERS_REGISTERED'
+export const USERS_REGISTERING = 'USERS_REGISTERING'

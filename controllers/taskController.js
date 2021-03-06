@@ -1,13 +1,21 @@
-const Task = require('../models/Task')
-const tasks = require('../data/task')
+const Task = require('../models/Task');
+const tasks = require('../data/task');
 
-const getTasks = (req, res)=>{
+const getTasks = (req, res) => {
     Task.find()
     .exec((err,tasks)=> {
         if (err) return res.status(500).send(err.message);
         if (tasks.length === 0) return res.status(404).send("no tasks found");
         return res.status(200).send(tasks);
-    })
+    });
+}
+
+const getUserTasks = async (req, res) => {
+const userId = req.body.userId;
+await Task.find({userId: userId },( err, users )  => {
+    if(err) res.status(500).send(err.message);
+    else res.status(200).send(users);
+});
 }
 
 const createTask = async (req, res) => {
@@ -35,4 +43,4 @@ const updateTask = async (req,res) => {
         return res.status(200).send(task)
     })
 }
-module.exports = { createTask, seedTasks, updateTask, getTasks }
+module.exports = { createTask, seedTasks, updateTask, getTasks, getUserTasks }
